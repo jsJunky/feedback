@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  section
+    h1= title
+
+    form(action='/feedback', method="POST")
+      label(for='fname') Name (Optional)
+      input#fname(type='text', name='firstname', placeholder='Your name..')
+      label(for='subject') Feedback *
+      textarea#subject(name='subject', placeholder='Write something..', required, style='height:200px')
+      input(type='submit', value='Submit')
