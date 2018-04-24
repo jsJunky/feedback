@@ -10,7 +10,6 @@ const transporter = nodemailer.createTransport({
      }
  });
 
-/* GET home page. */
 router.get('/', (req, res, next) => {
   res.render('index', { title: 'Feedback' });
 });
@@ -22,8 +21,6 @@ router.post('/feedback', (req, res) => {
     subject: 'Feedback', // Subject line
     html: `<p>${req.body.firstname || 'Anonymous'}:</p> <p>${req.body.subject}</p>`
   };
-
-  console.log(mailOptions);
 
   transporter.sendMail(mailOptions, function (err, info) {
     if(err) {
